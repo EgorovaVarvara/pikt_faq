@@ -5,16 +5,16 @@ html, body {
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* чтобы контент был сверху */
     align-items: center;
-    min-height: 100vh; /* важно! */
+    min-height: 100vh;
 }
 
 .faq-header {
-    background-color: #3f45d3; /* Синий фон */
+    background-color: #3f45d3;
     color: white;
     padding: 20px 40px;
     display: flex;
@@ -43,7 +43,7 @@ body {
 .faq-item {
     margin-bottom: 20px;
     border-radius: 8px;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .faq-category {
@@ -52,7 +52,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 20px 10px 50px; /* отступ слева — под уточку */
+    padding: 10px 20px 10px 50px;
     cursor: pointer;
     box-sizing: border-box;
     position: relative;
@@ -61,9 +61,25 @@ body {
     min-height: 40px;
 }
 
+.faq-subcategory{
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    min-height: 40px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
 .faq-category::before {
     content: '';
-    background-image: url('duck-pointer.png');
+    background-image: url('duck_icon.ico');
     background-size: contain;
     background-repeat: no-repeat;
     width: 30px;
@@ -74,13 +90,12 @@ body {
     transform: translateY(-50%);
 }
 
-.faq-category-text {
+.faq-category-text, .faq-subcategory-text {
     flex: 1;
     text-align: left;
     padding-right: 10px;
 }
 
-/* стрелка */
 .arrow {
     width: 0;
     height: 0;
@@ -90,8 +105,20 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* поворот при активном элементе */
+.subcategory-arrow{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid #6c6ee4;
+    transition: transform 0.3s ease;
+}
+
 .faq-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer.active .subcategory-arrow{
     transform: rotate(180deg);
 }
 
@@ -99,15 +126,35 @@ body {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transform: translateY(-10px); /* чуть выше, для эффекта “выплывания” */
+    transform: translateY(-10px);
     transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
     padding-left: 50px;
     font-size: 16px;
     color: #222;
 }
 
+.subanswer{
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+    padding-left: 50px;
+    font-size: 16px;
+    color: #222;
+    p {
+        margin-bottom: 30px;
+    }
+}
+
+.faq-answer.active .subanswer{
+    max-height: 100000px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .faq-item.active .faq-answer {
-    max-height: 500px; /* достаточно большое значение, больше нужного контента */
+    max-height: 100000px;
     opacity: 1;
     transform: translateY(0);
 }
@@ -133,10 +180,46 @@ body {
     background-color: #3f45d3;
     color: white;
     padding: 20px 40px;
-    height: 80px;
+    height: 100px;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: auto; /* 🚀 магия, чтобы футер ушёл вниз */
+    margin-top: auto;
+    text-align: center;
+    gap: 20px;
+}
+
+.footer-title {
+    font-size: 20px;
+}
+
+.footer-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+}
+
+.contact .name {
+    margin-bottom: 5px;
+}
+
+.contact .telegram {
+    font-size: 14px;
+
+    a {
+        color: #ffffff;
+    }
+    a:visited{
+        color: #9c9c9c;
+    }
 }
