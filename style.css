@@ -57,7 +57,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 10px 20px 10px ;
+    padding: 10px 20px 10px;
     cursor: pointer;
     box-sizing: border-box;
     position: relative;
@@ -72,7 +72,7 @@ body {
     background-color: #f0f0f0;
 }
 
-.faq-subcategory{
+.faq-subcategory {
     all: unset;
     display: flex;
     align-items: center;
@@ -98,7 +98,7 @@ body {
     position: absolute;
     left: -25px;
     top: 50%;
-    transform:  translateY(-50%);
+    transform: translateY(-50%);
     display: inline-block;
 }
 
@@ -116,7 +116,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-.subcategory-arrow{
+.subcategory-arrow {
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
@@ -129,7 +129,7 @@ body {
     transform: rotate(180deg);
 }
 
-.faq-answer.active .subcategory-arrow{
+.faq-answer.active .subcategory-arrow {
     transform: rotate(180deg);
 }
 
@@ -145,7 +145,7 @@ body {
     padding-left: 20px;
 }
 
-.subanswer{
+.subanswer {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -154,12 +154,13 @@ body {
     padding-left: 50px;
     font-size: 16px;
     color: #222;
+
     p {
         margin-bottom: 30px;
     }
 }
 
-.faq-answer.active .subanswer{
+.faq-answer.active .subanswer {
     max-height: 100000px;
     opacity: 1;
     transform: translateY(0);
@@ -188,7 +189,7 @@ body {
     width: 100%;
 }
 
-.faq-footer{
+.faq-footer {
     background-color: #3f45d3;
     color: white;
     padding: 20px 40px;
@@ -211,7 +212,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 100px;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
+
 }
 
 .contact {
@@ -231,7 +233,8 @@ body {
     a {
         color: #ffffff;
     }
-    a:visited{
+
+    a:visited {
         color: #ffffff;
     }
 }
@@ -241,20 +244,47 @@ body {
         font-size: 16px;
     }
 
+    .faq-category::before {
+        left: -15px;
+    }
+
     .faq-answer {
         font-size: 15px;
     }
 
+    .faq-subcategory {
+        font-size: 16px;
+    }
+
+    .subanswer {
+        font-size: 14px;
+    }
+
     .footer-title {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .faq-header {
-        padding: 10px 15px;
+        padding: 10px 10px;
+        gap: 10px;
+    }
+
+    .faq-title {
+        font-size: 18px;
     }
 
     .footer-contacts {
-        gap: 20px;
+        gap: 10px;
+        flex-direction: column; /* ← из строки в столбец */
+        align-items: center;
+    }
+
+    .contact .telegram {
+        font-size: 14px;
+    }
+
+    .faq-footer{
+        height: 32%;
     }
 }
 
